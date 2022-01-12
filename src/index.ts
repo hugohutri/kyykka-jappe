@@ -8,6 +8,8 @@ import { handleStop } from "./helpers/handle-stop";
 import { logx } from "./helpers/logx";
 import { getWeatherString } from "./helpers/weather";
 
+require("dotenv").config();
+
 const token = process.env.TELEGRAM_BOT_TOKEN ?? "";
 const bot = new Telegraf(token);
 export type Bot = Telegraf<Context<Update>>;

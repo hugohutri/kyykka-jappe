@@ -1,6 +1,6 @@
 import fetch from "cross-fetch";
-import { format } from "fecha";
-import { readFile, readFileSync, writeFileSync } from "fs";
+import { readFile, writeFileSync } from "fs";
+require("dotenv").config();
 
 export interface Main {
   temp: number;
