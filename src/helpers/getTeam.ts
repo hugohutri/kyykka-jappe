@@ -1,8 +1,5 @@
 import { Match, Team } from "./api";
-import { compare } from "./compare-string";
 import { getSimilarity } from "./similarity";
-
-// TODO: CLEANME
 
 export function getTeam(matches: Match[], nick: string) {
   let team: Team | undefined;
@@ -29,14 +26,3 @@ function getTeamSimilarity(team: Team, str: string) {
   const nameSim = getSimilarity(str, team.name);
   return Math.max(abbrSim, nameSim);
 }
-
-// export function getTeam(matches: Match[], searchTerm: string) {
-//   for (const match of matches) {
-//     if (compare(match.home_team.name, searchTerm)) return match.home_team;
-//     if (compare(match.home_team.abbreviation, searchTerm))
-//       return match.home_team;
-//     if (compare(match.away_team.name, searchTerm)) return match.away_team;
-//     if (compare(match.away_team.abbreviation, searchTerm))
-//       return match.away_team;
-//   }
-// }
