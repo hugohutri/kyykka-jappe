@@ -1,9 +1,12 @@
 // def get_players_data():
-//     url = requests.get("https://kyykka.com/api/players/?season=3")
+//     url = requests.get(`https://kyykka.com/api/players/?season=${SEASON}`)
 //     text = url.text
 
 import fetch from "cross-fetch";
 
+const SEASON = 4;
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 //     return json.loads(text)
 type KeyValuePair = { [key: string]: number };
 
@@ -34,7 +37,7 @@ export interface Player {
 }
 
 export async function fetchPlayers() {
-  const res = await fetch("https://kyykka.com/api/players/?season=3");
+  const res = await fetch(`https://kyykka.com/api/players/?season=${SEASON}`);
   const data: Player[] = await res.json();
   return data;
 }
@@ -64,7 +67,7 @@ export interface Match {
 }
 
 export async function fetchMatches() {
-  const res = await fetch("https://kyykka.com/api/matches/?season=3");
+  const res = await fetch(`https://kyykka.com/api/matches/?season=${SEASON}`);
   const data: Match[] = await res.json();
   return data;
 }

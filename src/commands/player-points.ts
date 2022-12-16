@@ -77,7 +77,7 @@ function findPlayersByName(allPlayers: Player[], searchTerm: string) {
   return allPlayers.filter((player) => compare(player.player_name, searchTerm));
 }
 
-function findPlayersByTeam(allPlayers: Player[], searchTerm: string) {
+export function findPlayersByTeam(allPlayers: Player[], searchTerm: string) {
   if (!searchTerm) return [];
   return allPlayers.filter(
     (player) =>

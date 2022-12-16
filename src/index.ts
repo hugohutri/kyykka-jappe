@@ -4,6 +4,7 @@ import { calendarCommand } from "./commands/calendar";
 import { commandFutureMatches, commandOldMatches } from "./commands/matches";
 import { CMD_TO_FUNCION } from "./commands/player-points";
 import { commandPredict } from "./commands/predict";
+import { tactic } from "./commands/tactic";
 import { handleStop } from "./helpers/handle-stop";
 import { logx } from "./helpers/logx";
 import { getWeatherString } from "./helpers/weather";
@@ -30,6 +31,10 @@ bot.command("kalenteri", (ctx) => {
 });
 bot.command("ennusta", (ctx) => {
   commandPredict(ctx);
+  logx(ctx);
+});
+bot.command("taktiikka", (ctx) => {
+  tactic(ctx);
   logx(ctx);
 });
 

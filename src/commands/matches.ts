@@ -8,6 +8,13 @@ import { getWeatherString } from "../helpers/weather";
 import { getTeam } from "../helpers/getTeam";
 
 async function vsCommand(context: Context, searchTerm: string) {
+  const matches = await getVsMatches(searchTerm);
+
+  const msg = await getMatchesMessage(matches);
+  reply(context, msg);
+}
+
+export async function getVsMatches(searchTerm: string) {
   const [team1, team2] = searchTerm.split(" vs ");
 
   const allMatches = await fetchMatches();
@@ -23,9 +30,7 @@ async function vsCommand(context: Context, searchTerm: string) {
       }
     }
   }
-
-  const msg = await getMatchesMessage(matches);
-  reply(context, msg);
+  return matches;
 }
 
 export async function commandFutureMatches(context: Context) {
